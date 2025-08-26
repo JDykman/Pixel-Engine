@@ -1,16 +1,6 @@
 package main
 
-/*
-
-This is a nice lil cosy spot for the backbone of the entity system.
-
-Entity structure can vary greatly or subtly from game to game depending on the constraints.
-So it doesn't really make sense to abstract this away into a package.
-It adds too much friction.
-
-*/
-
-MAX_ENTITIES :: 2048 // increase this as needed.
+MAX_ENTITIES :: 2048
 
 import "base:runtime"
 import "core:log"
@@ -18,10 +8,6 @@ import "core:fmt"
 
 Entity_Handle :: struct {
 	index: int,
-
-	// I prefer assigning a unique ID to each entity, instead of going the generational
-	// handle route. Makes trying to debug things a bit easier if we know for a fact
-	// an entity cannot have the same ID as another one.
 	id: int,
 }
 
@@ -43,7 +29,6 @@ entity_is_valid_ptr :: proc(entity: ^Entity) -> bool {
 }
 
 entity_init_core :: proc() {
-	// make sure the zero entity has good defaults, so we don't crash on stuff like functions pointers
 	entity_setup(&zero_entity, .nil)
 }
 

@@ -45,7 +45,7 @@ import slog "engine:sokol/log"
 import win32 "core:sys/windows"
 
 Core_Context :: struct {
-	gs: ^Game_State,
+	gs: ^Engine_State,
 	delta_t: f32,
 
 }
@@ -74,7 +74,7 @@ main :: proc() {
 
 // don't directly access this global, use the ctx.gs instead.
 // (getting used to this will help later when you upgrade to a fixed timestep, don't worry about it now tho)
-_actual_game_state: ^Game_State
+_actual_game_state: ^Engine_State
 
 core_app_init :: proc "c" () { // these sokol callbacks are c procs
 	context = our_context // so we need to add the odin context in
@@ -91,7 +91,7 @@ core_app_init :: proc "c" () { // these sokol callbacks are c procs
 
 	entity_init_core()
 
-	_actual_game_state = new(Game_State)
+	_actual_game_state = new(Engine_State)
 
 	input.window_resize_callback = proc(width: int, height: int) {
 		window_w = width

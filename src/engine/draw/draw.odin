@@ -183,8 +183,6 @@ draw_sprite_in_rect :: proc(sprite: user.Sprite_Name, pos: Vec2, size: Vec2, xfo
 		rect.zw -= size_diff * 0.5
 		rect = shape.rect_shift(rect, offset)
 	}
-
-	// TODO, there's a buggie wuggie in here somewhere...
 	
 	// ratio render lock
 	if img_size.x > img_size.y { // long boi

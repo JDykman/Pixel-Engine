@@ -13,7 +13,6 @@ GAMEPLAY O'CLOCK !
 
 import "engine:input"
 import "engine:draw"
-// import "engine:sound"
 import "engine:utils"
 import "engine:utils/color"
 
@@ -27,7 +26,7 @@ import sapp "engine:sokol/app"
 import spall "core:prof/spall"
 
 VERSION :string: "v0.0.0"
-WINDOW_TITLE :: "Template [engine]"
+WINDOW_TITLE :: "Pixel Engine"
 GAME_RES_WIDTH :: 480
 GAME_RES_HEIGHT :: 270
 window_w := 1280
@@ -44,7 +43,7 @@ when NOT_RELEASE {
 //
 // epic game state
 
-Game_State :: struct {
+Engine_State :: struct {
 	ticks: u64,
 	game_time_elapsed: f64,
 	cam_pos: Vec2, // this is used by the renderer
@@ -157,13 +156,10 @@ app_frame :: proc() {
 		draw.draw_text({x, y}, "hello world.", z_layer=.ui, pivot=Pivot.top_left)
 	}
 
-	// sound.play_continuously("event:/ambiance", "")
-
 	game_update()
 	game_draw()
 
 	volume :f32= 0.75
-	// sound.update(get_player().pos, volume)
 }
 
 app_shutdown :: proc() {
@@ -205,12 +201,9 @@ game_update :: proc() {
 
 		pos := mouse_pos_in_current_space()
 		log.info("schloop at", pos)
-		// sound.play("event:/schloop", pos=pos)
 	}
 
 	utils.animate_to_target_v2(&ctx.gs.cam_pos, get_player().pos, ctx.delta_t, rate=10)
-
-	// ... add whatever other systems you need here to make epic game
 }
 
 rebuild_scratch_helpers :: proc() {
@@ -243,8 +236,8 @@ game_draw :: proc() {
 	{
 		draw.push_coord_space(get_world_space())
 		
-		draw.draw_sprite({10, 10}, .player_still, col_override=Vec4{1,0,0,0.4})
-		draw.draw_sprite({-10, 10}, .player_still)
+		// draw.draw_sprite({10, 10}, .player_still, col_override=Vec4{1,0,0,0.4})
+		// draw.draw_sprite({-10, 10}, .player_still)
 
 		draw.draw_text({0, -50}, "sugon", pivot=.bottom_center, col={0,0,0,0.1})
 
@@ -323,34 +316,11 @@ get_player :: proc() -> ^Entity {
 setup_player :: proc(e: ^Entity) {
 	e.kind = .player
 
-	// this offset is to take it from the bottom center of the aseprite document
-	// and center it at the feet
-	e.draw_offset = Vec2{0.5, 5}
-	e.draw_pivot = .bottom_center
-
 	e.update_proc = proc(e: ^Entity) {
 
 		input_dir := get_input_vector()
 		e.pos += input_dir * 100.0 * ctx.delta_t
-
-		if input_dir.x != 0 {
-			e.last_known_x_dir = input_dir.x
-		}
-
-		e.flip_x = e.last_known_x_dir < 0
-
-		if input_dir == {} {
-			entity_set_animation(e, .player_idle, 0.3)
-		} else {
-			entity_set_animation(e, .player_run, 0.1)
-		}
-
 		e.scratch.col_override = Vec4{0,0,1,0.2}
-	}
-
-	e.draw_proc = proc(e: Entity) {
-		draw.draw_sprite(e.pos, .shadow_medium, col={1,1,1,0.2})
-		draw_entity_default(e)
 	}
 }
 
