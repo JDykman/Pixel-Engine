@@ -2,7 +2,7 @@ package main
 
 /*
 
-bald_helpers_v1
+engine_helpers_v1
 
 These are functions that should (for the most part) be shared across games.
 

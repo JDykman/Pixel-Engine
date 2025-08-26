@@ -37,7 +37,7 @@ ZLayer :: enum u8 {
 
 Sprite_Name :: enum {
 	nil,
-	bald_logo,
+	engine_logo,
 	fmod_logo,
 	player_still,
 	shadow_medium,

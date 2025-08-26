@@ -1,4 +1,4 @@
-# FMOD Integration for OdinGame2
+# FMOD Integration
 
 ## Overview
 This project has been successfully integrated with FMOD (Firelight Technologies) audio engine for cross-platform sound functionality.
@@ -11,7 +11,7 @@ This project has been successfully integrated with FMOD (Firelight Technologies)
 yay -S fmodengine fmodstudio
 
 # Build Sokol C libraries
-cd sauce/bald/sokol
+cd src/engine/sokol
 ./build_clibs_linux.sh
 cd ../../..
 ```
@@ -54,7 +54,7 @@ build\windows_debug\game.exe
 
 ### Windows
 - Libraries should be in project directory or system PATH
-- FMOD bindings expect libraries in `sauce/bald/sound/fmod/core/lib/windows/` and `sauce/bald/sound/fmod/studio/lib/windows/`
+- FMOD bindings expect libraries in `src/engine/sound/fmod/core/lib/windows/` and `src/engine/sound/fmod/studio/lib/windows/`
 
 ## Version Compatibility
 - FMOD Engine: 2.03.07
