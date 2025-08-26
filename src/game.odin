@@ -13,7 +13,7 @@ GAMEPLAY O'CLOCK !
 
 import "engine:input"
 import "engine:draw"
-import "engine:sound"
+// import "engine:sound"
 import "engine:utils"
 import "engine:utils/color"
 
@@ -157,13 +157,13 @@ app_frame :: proc() {
 		draw.draw_text({x, y}, "hello world.", z_layer=.ui, pivot=Pivot.top_left)
 	}
 
-	sound.play_continuously("event:/ambiance", "")
+	// sound.play_continuously("event:/ambiance", "")
 
 	game_update()
 	game_draw()
 
 	volume :f32= 0.75
-	sound.update(get_player().pos, volume)
+	// sound.update(get_player().pos, volume)
 }
 
 app_shutdown :: proc() {
@@ -205,7 +205,7 @@ game_update :: proc() {
 
 		pos := mouse_pos_in_current_space()
 		log.info("schloop at", pos)
-		sound.play("event:/schloop", pos=pos)
+		// sound.play("event:/schloop", pos=pos)
 	}
 
 	utils.animate_to_target_v2(&ctx.gs.cam_pos, get_player().pos, ctx.delta_t, rate=10)

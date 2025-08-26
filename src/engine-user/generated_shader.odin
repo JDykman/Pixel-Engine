@@ -1435,21 +1435,21 @@ quad_shader_desc :: proc (backend: sg.Backend) -> sg.Shader_Desc {
         desc.vertex_func.entry = "main"
         desc.fragment_func.source = transmute(cstring)&fs_source_glsl410
         desc.fragment_func.entry = "main"
-        desc.attrs[0].base_type = .FLOAT
+
         desc.attrs[0].glsl_name = "position"
-        desc.attrs[1].base_type = .FLOAT
+
         desc.attrs[1].glsl_name = "color0"
-        desc.attrs[2].base_type = .FLOAT
+
         desc.attrs[2].glsl_name = "uv0"
-        desc.attrs[3].base_type = .FLOAT
+
         desc.attrs[3].glsl_name = "local_uv0"
-        desc.attrs[4].base_type = .FLOAT
+
         desc.attrs[4].glsl_name = "size0"
-        desc.attrs[5].base_type = .FLOAT
+
         desc.attrs[5].glsl_name = "bytes0"
-        desc.attrs[6].base_type = .FLOAT
+
         desc.attrs[6].glsl_name = "color_override0"
-        desc.attrs[7].base_type = .FLOAT
+
         desc.attrs[7].glsl_name = "params0"
         desc.uniform_blocks[0].stage = .FRAGMENT
         desc.uniform_blocks[0].layout = .STD140
@@ -1482,28 +1482,28 @@ quad_shader_desc :: proc (backend: sg.Backend) -> sg.Shader_Desc {
         desc.fragment_func.source = transmute(cstring)&fs_source_hlsl5
         desc.fragment_func.d3d11_target = "ps_5_0"
         desc.fragment_func.entry = "main"
-        desc.attrs[0].base_type = .FLOAT
+
         desc.attrs[0].hlsl_sem_name = "TEXCOORD"
         desc.attrs[0].hlsl_sem_index = 0
-        desc.attrs[1].base_type = .FLOAT
+
         desc.attrs[1].hlsl_sem_name = "TEXCOORD"
         desc.attrs[1].hlsl_sem_index = 1
-        desc.attrs[2].base_type = .FLOAT
+
         desc.attrs[2].hlsl_sem_name = "TEXCOORD"
         desc.attrs[2].hlsl_sem_index = 2
-        desc.attrs[3].base_type = .FLOAT
+
         desc.attrs[3].hlsl_sem_name = "TEXCOORD"
         desc.attrs[3].hlsl_sem_index = 3
-        desc.attrs[4].base_type = .FLOAT
+
         desc.attrs[4].hlsl_sem_name = "TEXCOORD"
         desc.attrs[4].hlsl_sem_index = 4
-        desc.attrs[5].base_type = .FLOAT
+
         desc.attrs[5].hlsl_sem_name = "TEXCOORD"
         desc.attrs[5].hlsl_sem_index = 5
-        desc.attrs[6].base_type = .FLOAT
+
         desc.attrs[6].hlsl_sem_name = "TEXCOORD"
         desc.attrs[6].hlsl_sem_index = 6
-        desc.attrs[7].base_type = .FLOAT
+
         desc.attrs[7].hlsl_sem_name = "TEXCOORD"
         desc.attrs[7].hlsl_sem_index = 7
         desc.uniform_blocks[0].stage = .FRAGMENT
@@ -1534,14 +1534,14 @@ quad_shader_desc :: proc (backend: sg.Backend) -> sg.Shader_Desc {
         desc.vertex_func.entry = "main0"
         desc.fragment_func.source = transmute(cstring)&fs_source_metal_macos
         desc.fragment_func.entry = "main0"
-        desc.attrs[0].base_type = .FLOAT
-        desc.attrs[1].base_type = .FLOAT
-        desc.attrs[2].base_type = .FLOAT
-        desc.attrs[3].base_type = .FLOAT
-        desc.attrs[4].base_type = .FLOAT
-        desc.attrs[5].base_type = .FLOAT
-        desc.attrs[6].base_type = .FLOAT
-        desc.attrs[7].base_type = .FLOAT
+
+
+
+
+
+
+
+
         desc.uniform_blocks[0].stage = .FRAGMENT
         desc.uniform_blocks[0].layout = .STD140
         desc.uniform_blocks[0].size = 80

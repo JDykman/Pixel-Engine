@@ -1,6 +1,6 @@
 package draw
 
-import user "user:engine-user"
+import user "../../engine-user"
 
 import "engine:utils"
 import "engine:utils/color"

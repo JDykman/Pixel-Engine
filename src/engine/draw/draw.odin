@@ -11,7 +11,7 @@ Relies on the fact that we're generating a compatible shader via the build step 
 
 */
 
-import user "user:engine-user"
+import user "../../engine-user"
 import "engine:utils"
 import "engine:utils/color"
 import shape "engine:utils/shape"

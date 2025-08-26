@@ -17,12 +17,12 @@ Consider this like the engine/utils package, but for stuff tangled with the game
 
 import "engine:input"
 import "engine:draw"
-import "engine:sound"
+// import "engine:sound"
 import "engine:utils"
 import "engine:utils/color"
 import "engine:utils/shape"
 
-import user "user:engine-user"
+import user "engine-user"
 
 import "core:log"
 import "core:fmt"
@@ -292,5 +292,5 @@ mouse_pos_in_current_space :: proc() -> Vec2 {
 // SOUND
 
 emit_sound_from_entity :: proc(event_name: string, e: ^Entity) {
-	sound.play_continuously(event_name, fmt.tprint(e.handle.id), e.pos)
+	// sound.play_continuously(event_name, fmt.tprint(e.handle.id), e.pos)
 }

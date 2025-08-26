@@ -20,7 +20,7 @@ and is highly tangled with game state.
 
 */
 
-import "engine:sound"
+// import "engine:sound"
 import "engine:utils"
 import "engine:draw"
 import "engine:input"
@@ -87,7 +87,7 @@ core_app_init :: proc "c" () { // these sokol callbacks are c procs
 		win32.FreeConsole()
 	}
 
-	sound.init()
+	// sound.init()
 
 	entity_init_core()
 
@@ -159,6 +159,6 @@ core_app_shutdown :: proc "c" () {
 
 	app_shutdown()
     // ensure FMOD is shut down cleanly before gfx shutdown
-    sound.shutdown()
+    // sound.shutdown()
 	sg.shutdown()
 }
